@@ -212,4 +212,18 @@ public class HomeController extends BaseController implements Jw28Constant{
 		
 		return "redirect:/product-detail/" + productId;
 	}
+	
+	@GetMapping("/about")
+	public String about(Model model) {
+		List<Category> categories = categoryService.findAllActive();
+		model.addAttribute("categories", categories);
+		return "frontend/about";
+	}
+	
+	@GetMapping("/faq")
+	public String faq(Model model) {
+		List<Category> categories = categoryService.findAllActive();
+		model.addAttribute("categories", categories);
+		return "frontend/faq";
+	}
 }

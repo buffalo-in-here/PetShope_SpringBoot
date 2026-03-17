@@ -26,10 +26,12 @@ $(function () {
     });
 
     // ==============================================================
-    //tooltip
+    //tooltip (requires Popper - use bootstrap.bundle.min.js)
     // ==============================================================
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
+        if (typeof $().tooltip === 'function') {
+            $('[data-toggle="tooltip"]').tooltip();
+        }
     })
     // ==============================================================
     //Popover
@@ -39,11 +41,13 @@ $(function () {
     })
 
     // ==============================================================
-    // Perfact scrollbar
+    // Perfect scrollbar (only if plugin loaded)
     // ==============================================================
-    $('.message-center, .customizer-body, .scrollable, .scroll-sidebar').perfectScrollbar({
-        wheelPropagation: !0
-    });
+    if (typeof $.fn.perfectScrollbar === 'function') {
+        $('.message-center, .customizer-body, .scrollable, .scroll-sidebar').perfectScrollbar({
+            wheelPropagation: !0
+        });
+    }
 
     // ==============================================================
     // Resize all elements

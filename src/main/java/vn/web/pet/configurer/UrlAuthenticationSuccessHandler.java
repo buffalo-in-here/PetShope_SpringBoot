@@ -51,25 +51,29 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
 			
 			Map<String, String> roleTargetUrlMap = new HashMap<String, String>(); //key: Role - value: URL
 			//Key la role name, value la Url (action)
-			roleTargetUrlMap.put("ADMIN", "/admin/home");
-			roleTargetUrlMap.put("GUEST", "/index");
-
-			final Collection<? extends GrantedAuthority> authorities = 
-					authentication.getAuthorities(); //Lay danh sach cac roles
-			for (final GrantedAuthority grantedAuthority : authorities) { 
+			roleTargetUrlMap.put("ROLE_ADMIN", "/admin/home");
+		roleTargetUrlMap.put("ROLE_USER", "/index");
+		roleTargetUrlMap.put("ADMIN", "/admin/home");
+		roleTargetUrlMap.put("USER", "/index");
+		
+		final Collection<? extends GrantedAuthority> authorities = 
+				authentication.getAuthorities(); //Lay danh sach cac roles
+		
+		for (final GrantedAuthority grantedAuthority : authorities) {
 				//authorities lay Trong class User
 				String authorityName = grantedAuthority.getAuthority(); 
 				//role name
 				
 				if (roleTargetUrlMap.containsKey(authorityName)) {
-					//System.out.println("authorityName: " + authorityName);
-					//System.out.println("role url map: " + 
-							//roleTargetUrlMap.get(authorityName).toString());
+					System.out.println("Found role: " + authorityName);
 					return roleTargetUrlMap.get(authorityName);  
 					//Trả về target url của user đăng nhập
 				}
 			}
-			throw new IllegalStateException();
+			
+			// Default redirect URL nếu không tìm thấy role
+			System.out.println("Warning: No matching role found for authorities: " + authorities.toString());
+			return "/index";
 		}
 		
 		protected void clearAuthenticationAttributes(HttpServletRequest request) {

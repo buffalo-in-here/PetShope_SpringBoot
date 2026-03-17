@@ -113,8 +113,8 @@ public class UserController extends BaseController implements Jw28Constant{
 		user.setEmail(request.getParameter("email"));
 		user.setAddress(request.getParameter("address"));
 		
-		//Chọn quyền là guest 
-		Role role = (Role)roleService.getRoleByName("GUEST");
+		//Chọn quyền là người dùng bình thường
+		Role role = (Role)roleService.getRoleByName("ROLE_USER");
 		user.addRelationalUserRole(role);
 		userService.saveOrUpdate(user);
 		return "redirect:/admin/user/add";

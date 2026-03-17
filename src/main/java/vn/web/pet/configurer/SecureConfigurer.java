@@ -30,8 +30,8 @@ public class SecureConfigurer extends WebSecurityConfigurerAdapter{
 		//quy định đăng nhập cho tiền tố admin
 //		 .antMatchers("/admin/**").authenticated() //step 1+2
 		
-		 // Cac request kieu /admin/** phai co role la ADMIN //step 3
-		.antMatchers("/admin/**").hasAuthority("ADMIN")
+		 // Cac request kieu /admin/** phai co role la ROLE_ADMIN //step 3
+		.antMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
 
 		.and()
 

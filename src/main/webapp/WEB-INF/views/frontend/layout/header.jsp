@@ -46,15 +46,8 @@
                                             </c:if>
                                         </ul>
                                     </li>
-									
-<!--                                     <li class="header__bottom-menu-children"><a href="#">Phụ kiện</a></li> -->
-<!--                                     <li class="header__bottom-menu-children"> -->
-<!--                                         <a href="#">Dịch vụ</a> -->
-<!--                                         <ul class="subnav"> -->
-<!--                                             <li><a href="#">Spa</a></li> -->
-<!--                                             <li><a href="#">Chăm sóc thú cưng</a></li> -->
-<!--                                         </ul> -->
-<!--                                     </li> -->
+									<li class="header__bottom-menu-children"><a href="${classpath }/about">Về Chúng Tôi</a></li>
+									<li class="header__bottom-menu-children"><a href="${classpath }/faq">Hỏi & Đáp</a></li>
                                     <li class="header__bottom-menu-children"><a href="${classpath }/lienhe">Liên hệ</a></li>
                                 </ul>
                                 
