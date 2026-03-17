@@ -15,14 +15,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.multipart.MultipartFile;
 
+import vn.web.pet.configurer.UploadPathConfig;
 import vn.web.pet.dto.Contact;
-import vn.web.pet.dto.Jw28Constant;
 
 @Controller
 @RequestMapping ("/contact/")
-public class ContactController implements Jw28Constant {
+public class ContactController {
+
+	@Autowired
+	private UploadPathConfig uploadPathConfig;
 	
 	@RequestMapping (value = "view", method = RequestMethod.GET)
 	public String contact() { //action method: xu ly 1 request tu browswer
@@ -123,7 +127,7 @@ public class ContactController implements Jw28Constant {
 		
 		if (file != null && file.getOriginalFilename() != null) {
 			//Luu file vao thu muc UploadFiles/ContactFiles/
-			String path = FOLDER_UPLOAD + "ContactFiles/" +
+			String path = uploadPathConfig.getUploadPath() + "ContactFiles/" +
 							file.getOriginalFilename();
 			File saveFile = new File(path);
 			file.transferTo(saveFile);

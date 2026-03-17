@@ -8,10 +8,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import vn.web.pet.dto.Jw28Constant;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
-public class MvcConfigurer implements WebMvcConfigurer, Jw28Constant {
+public class MvcConfigurer implements WebMvcConfigurer {
+
+	@Autowired
+	private UploadPathConfig uploadPathConfig;
 	@Bean
 	public ViewResolver viewResolver() {
 		// Xu ly va tra ve doi tuong view thong qua ten
@@ -27,7 +30,12 @@ public class MvcConfigurer implements WebMvcConfigurer, Jw28Constant {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/frontend/**").addResourceLocations("classpath:/frontend/");
 		registry.addResourceHandler("/backend/**").addResourceLocations("classpath:/backend/");
-		registry.addResourceHandler("/UploadFiles/**").addResourceLocations("file:" + FOLDER_UPLOAD);
+		
+		// Cấu hình để hỗ trợ realtime khi upload ảnh mới
+		// setCachePeriod(0) để không cache, ảnh mới sẽ hiển thị ngay lập tức
+		registry.addResourceHandler("/UploadFiles/**")
+				.addResourceLocations("file:" + uploadPathConfig.getUploadPath())
+				.setCachePeriod(0);
 	}
 
 }

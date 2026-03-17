@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>vn.java</groupId>
 	<artifactId>pet</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Javaweb28 Maven Webapp</name>
+	<name>Cat shope</name>
 	<url>http://maven.apache.org</url>
 	
 	<!-- Cấu hình cho maven project sử dụng jdk-11 -->
@@ -78,8 +78,13 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>			
 		</dependency>
-		
-	</dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
 	<build>
 		<finalName>Javaweb28</finalName>
 	</build>

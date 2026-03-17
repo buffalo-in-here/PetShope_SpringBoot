@@ -28,20 +28,22 @@
                                     <li class="header__bottom-menu-children">
                                         <a href="#">Thú cưng</a>
                                         <ul class="mega__subnav">
+                                            <c:if test="${not empty categories}">
                                             <li class="mega__subnav-menu">
                                                 <ul class="mega__subnav-menu-2">
-											        <c:forEach var="category" begin="0" end="${fn:length(categories)/2 - 1}" items="${categories}">
+											        <c:forEach var="category" begin="0" end="${(fn:length(categories) + 1) / 2 - 1}" items="${categories}">
 											            <li><a href="${classpath }/index?categoryId=${category.id}">${category.name}</a></li>
 											        </c:forEach>
 											    </ul>
-											<li>
+											</li>
 											<li class="mega__subnav-menu">
 											    <ul class="mega__subnav-menu-2">
-											        <c:forEach var="category" begin="${fn:length(categories)/2}" items="${categories}">
+											        <c:forEach var="category" begin="${(fn:length(categories) + 1) / 2}" items="${categories}">
 											            <li><a href="${classpath}/index?categoryId=${category.id}">${category.name}</a></li>
 											        </c:forEach>
 											    </ul>
                                             </li>
+                                            </c:if>
                                         </ul>
                                     </li>
 									
