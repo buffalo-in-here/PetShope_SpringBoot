@@ -42,6 +42,10 @@ public class Product extends BaseModel {
 	@Column(name = "seo", length = 1000, nullable = true)
 	private String seo;
 
+	// Transient fields for display (not persisted in database)
+	private transient Double avgRating;
+	private transient Integer reviewCount;
+
 //-----------Mapping many-to-one: product-to-category------------------
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "category_id")
@@ -75,6 +79,21 @@ public class Product extends BaseModel {
 	public void removeRelationalSaleOrderProduct(SaleOrderProduct saleOrderProduct) {
 		saleOrderProducts.remove(saleOrderProduct);
 		saleOrderProduct.setProduct(null);
+	}
+	
+//----------------Mapping one-to-many: tbl_product-to-tbl_product_review-------------------------------------------
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "product")
+	private Set<ProductReview> productReviews = new HashSet<ProductReview>();
+
+	// Add and remove elements in relational product-review list
+	public void addRelationalProductReview(ProductReview productReview) {
+		productReviews.add(productReview);
+		productReview.setProduct(this);
+	}
+
+	public void removeRelationalProductReview(ProductReview productReview) {
+		productReviews.remove(productReview);
+		productReview.setProduct(null);
 	}
 	
 	//-----------------Mapping many-to-one: tbl_product-to-tbl_user (for create product)----------------------------	
@@ -179,6 +198,22 @@ public class Product extends BaseModel {
 	}
 	public void setUserUpdateProduct(User userUpdateProduct) {
 		this.userUpdateProduct = userUpdateProduct;
+	}
+	
+	public Double getAvgRating() {
+		return avgRating;
+	}
+	
+	public void setAvgRating(Double avgRating) {
+		this.avgRating = avgRating;
+	}
+	
+	public Integer getReviewCount() {
+		return reviewCount;
+	}
+	
+	public void setReviewCount(Integer reviewCount) {
+		this.reviewCount = reviewCount;
 	}
 	
 }

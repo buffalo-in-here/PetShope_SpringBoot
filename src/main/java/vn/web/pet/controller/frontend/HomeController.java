@@ -23,9 +23,11 @@ import vn.web.pet.dto.ProductStatic;
 import vn.web.pet.model.Category;
 import vn.web.pet.model.Product;
 import vn.web.pet.model.ProductImage;
+import vn.web.pet.model.ProductReview;
 import vn.web.pet.model.User;
 import vn.web.pet.service.CategoryService;
 import vn.web.pet.service.ProductImageService;
+import vn.web.pet.service.ProductReviewService;
 import vn.web.pet.service.ProductService;
 import vn.web.pet.service.UserService;
 
@@ -40,6 +42,8 @@ public class HomeController extends BaseController implements Jw28Constant{
 	private CategoryService categoryService;
 	@Autowired
 	private ProductImageService productImageService;
+	@Autowired
+	private ProductReviewService productReviewService;
 	
 	 public static String capitalizeFirstLetter(String str) {
         if (str == null || str.isEmpty()) {
@@ -60,24 +64,30 @@ public class HomeController extends BaseController implements Jw28Constant{
 			           @RequestParam(name = "keyWord", defaultValue = "") String keyWord,
 			           @RequestParam(name = "beginPrice", defaultValue = "") String beginPrice,
 			           @RequestParam(name = "endPrice", defaultValue = "") String endPrice,
-			           @RequestParam(name = "categoryId", defaultValue = "0") int categoryId) {
+			           @RequestParam(name = "categoryId", defaultValue = "0") int categoryId,
+			           @RequestParam(name = "sortBy", defaultValue = "newest") String sortBy,
+			           @RequestParam(name = "minRating", defaultValue = "0") int minRating) {
 		ProductStatic productStatic = new ProductStatic();
 		System.out.println("new = " + productStatic.getNewClient());
 		
 		List<Category> categories = categoryService.findAllActive();
 		List<Product> allProducts = productService.searchProductByUser(categoryId, keyWord, beginPrice, endPrice);
-		// Tìm tất cả sản phẩm
+		
+		// Set rating info for each product
+		for (Product p : allProducts) {
+			p.setAvgRating(productReviewService.getAverageRating(p.getId()));
+			p.setReviewCount(productReviewService.getReviewCount(p.getId()));
+		}
+		
+		// Apply sorting
+		allProducts = sortProducts(allProducts, sortBy, minRating);
 
-	    // Tạo một trang mới từ danh sách sản phẩm và số trang được yêu cầu
 	    Page<Product> productPage = paginate(allProducts, page, SIZE_OF_BIG_PAGE);
 
-	    // Danh sách sản phẩm trên trang hiện tại
 	    List<Product> products = productPage.getContent();
-
-	    // Số trang tổng cộng
 	    int totalPages = productPage.getTotalPages();
 	    
-	    //-----------------------Xư ly phan login-----------------------------------------------
+	    //-----------------------Xử lý phần login-----------------------------------------------
 	    User user = new User();
 	    String userName = "";
 		Object loginedUser = 
@@ -96,9 +106,50 @@ public class HomeController extends BaseController implements Jw28Constant{
 	    model.addAttribute("keyWord", keyWord.trim());
 	    model.addAttribute("beginPrice", beginPrice);
 	    model.addAttribute("endPrice", endPrice);
+	    model.addAttribute("sortBy", sortBy);
+	    model.addAttribute("minRating", minRating);
 	    model.addAttribute("userName", capitalizeFirstLetter(userName));
 	    model.addAttribute("categories", categories);
 		return "frontend/index";
+	}
+	
+	private List<Product> sortProducts(List<Product> products, String sortBy, int minRating) {
+		// Filter by rating first
+		List<Product> filtered = new ArrayList<>();
+		for (Product p : products) {
+			Double avgRating = productReviewService.getAverageRating(p.getId());
+			if (avgRating == null) avgRating = 0.0;
+			if (avgRating >= minRating) {
+				filtered.add(p);
+			}
+		}
+		
+		// Then sort
+		switch (sortBy) {
+			case "price_low":
+				filtered.sort((p1, p2) -> p1.getPrice().compareTo(p2.getPrice()));
+				break;
+			case "price_high":
+				filtered.sort((p1, p2) -> p2.getPrice().compareTo(p1.getPrice()));
+				break;
+			case "name_az":
+				filtered.sort((p1, p2) -> p1.getName().compareToIgnoreCase(p2.getName()));
+				break;
+			case "rating_high":
+				filtered.sort((p1, p2) -> {
+					Double r1 = productReviewService.getAverageRating(p1.getId());
+					Double r2 = productReviewService.getAverageRating(p2.getId());
+					if (r1 == null) r1 = 0.0;
+					if (r2 == null) r2 = 0.0;
+					return r2.compareTo(r1);
+				});
+				break;
+			case "newest":
+			default:
+				filtered.sort((p1, p2) -> p2.getCreateDate().compareTo(p1.getCreateDate()));
+				break;
+		}
+		return filtered;
 	}
 	
 	@GetMapping("/product-detail/{productId}")
@@ -119,6 +170,15 @@ public class HomeController extends BaseController implements Jw28Constant{
 		List<ProductImage> productImages = productImageService.getProductImagesByProductId(productId);
 		model.addAttribute("productImages", productImages);
 		
+		// Get product reviews
+		List<ProductReview> reviews = productReviewService.getReviewsByProductId(productId);
+		Double avgRating = productReviewService.getAverageRating(productId);
+		Integer reviewCount = productReviewService.getReviewCount(productId);
+		
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("avgRating", avgRating != null ? avgRating : 0.0);
+		model.addAttribute("reviewCount", reviewCount != null ? reviewCount : 0);
+		
 		model.addAttribute("categories", categories);
 		model.addAttribute("productHot", productHot);
 		
@@ -130,5 +190,26 @@ public class HomeController extends BaseController implements Jw28Constant{
 		List<Category> categories = categoryService.findAllActive();
 		model.addAttribute("categories", categories);
 		return "frontend/lienhe";
+	}
+	
+	@RequestMapping(value = "/product-review/add", method = RequestMethod.POST)
+	public String addReview(Model model,
+			@RequestParam(name = "productId") int productId,
+			@RequestParam(name = "rating") int rating,
+			@RequestParam(name = "comment", defaultValue = "") String comment) {
+		
+		Object loginedUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (loginedUser == null || !(loginedUser instanceof UserDetails)) {
+			return "redirect:/login";
+		}
+		
+		User user = (User) loginedUser;
+		Product product = productService.getById(productId);
+		
+		if (product != null && rating >= 1 && rating <= 5) {
+			productReviewService.createReview(product, user, rating, comment);
+		}
+		
+		return "redirect:/product-detail/" + productId;
 	}
 }

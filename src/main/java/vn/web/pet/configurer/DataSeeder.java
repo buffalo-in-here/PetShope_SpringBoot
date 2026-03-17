@@ -3,12 +3,10 @@ package vn.web.pet.configurer;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -395,6 +393,11 @@ public class DataSeeder {
 		product.setCreateDate(new Date());
 		product.setUpdateDate(new Date());
 		
+		// Set avatar path
+		if (avatarFileName != null && !avatarFileName.isEmpty()) {
+			product.setAvatar("Product/Avatar/" + avatarFileName);
+		}
+		
 		if (category != null) {
 			product.setCategory(category);
 		}
@@ -427,6 +430,7 @@ public class DataSeeder {
 		if (avatarFileName != null && !avatarFileName.isEmpty()) {
 			ProductImage avatar = new ProductImage();
 			avatar.setTitle(avatarFileName);
+			avatar.setPath("Product/Avatar/" + avatarFileName);
 			avatar.setStatus(true);
 			avatar.setCreateDate(new Date());
 			avatar.setUpdateDate(new Date());
@@ -495,6 +499,7 @@ public class DataSeeder {
 		if (isImageExists(imageName)) {
 			ProductImage detailImage = new ProductImage();
 			detailImage.setTitle(imageName);
+			detailImage.setPath("Product/Image/" + imageName);
 			detailImage.setStatus(true);
 			detailImage.setCreateDate(new Date());
 			detailImage.setUpdateDate(new Date());

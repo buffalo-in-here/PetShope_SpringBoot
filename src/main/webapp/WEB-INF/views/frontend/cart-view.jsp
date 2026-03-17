@@ -80,7 +80,7 @@
 																			<th scope="row">${loop.index + 1 }</th>
 																			<td><img width="60px" height="60px"
 																				src="${classpath}/UploadFiles/${cartProduct.avatar }"
-																				class="light-logo"></td>
+																				class="light-logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22%3E%3Crect fill=%22%23f0f0f0%22 width=%2260%22 height=%2260%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%228%22 fill=%22%23999%22%3ENo Img%3C/text%3E%3C/svg%3E'"></td>
 																			<td>${item.productName }</td>
 																			<td align="center">
 																				<button type="button"

@@ -64,8 +64,8 @@
 	                                                	
 	                                                	<c:forEach items="${productImages }" var="productImage">
 		                                                    <div class="swiper-slide">
-		                                                        <img src="${classpath }/UploadFiles/${productImage.path }" alt=""
-		                                                            class="swiper__product-img">
+		                                                        <img src="${classpath }/UploadFiles/${productImage.path }" alt="Product Image"
+		                                                            class="swiper__product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22400%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23999%22%3ENo Image Available%3C/text%3E%3C/svg%3E'">
 		                                                    </div>
 	                                                    </c:forEach>
 	                                                </div>
@@ -128,6 +128,81 @@
                                 	<p>${product.detailDescription }</p>
                                 </div>
                             </div>
+                            
+                            <!-- Phần đánh giá sản phẩm -->
+                            <div class="product-reviews-section">
+                                <div class="main__products-title">
+                                    <p>Đánh Giá & Bình Luận</p>
+                                </div>
+                                
+                                <!-- Hiển thị thống kê đánh giá -->
+                                <div class="review-stats">
+                                    <div class="stats-header">
+                                        <div class="avg-rating">
+                                            <div class="rating-number">${avgRating != null && avgRating > 0 ? avgRating.toString().substring(0, java.lang.Math.min(3, avgRating.toString().length())) : '0'}</div>
+                                            <div class="rating-stars">
+                                                <c:forEach begin="1" end="5" var="i">
+                                                    <c:if test="${i <= avgRating}">⭐</c:if>
+                                                    <c:if test="${i > avgRating && avgRating > i - 1}">⭐</c:if>
+                                                </c:forEach>
+                                            </div>
+                                            <div class="review-count-text">${reviewCount} đánh giá</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Form đăng đánh giá -->
+                                <div class="review-form-wrapper">
+                                    <h4>Gửi đánh giá của bạn</h4>
+                                    <form action="${classpath }/product-review/add" method="POST" class="review-form">
+                                        <input type="hidden" name="productId" value="${product.id}">
+                                        
+                                        <div class="form-group">
+                                            <label>Đánh giá (1-5 sao)</label>
+                                            <div class="star-rating">
+                                                <c:forEach begin="1" end="5" var="i">
+                                                    <input type="radio" name="rating" id="star${i}" value="${i}" required>
+                                                    <label for="star${i}">⭐</label>
+                                                </c:forEach>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Bình luận</label>
+                                            <textarea name="comment" class="form-control" rows="4" placeholder="Chia sẻ trải nghiệm của bạn..."></textarea>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary">Gửi Đánh Giá</button>
+                                    </form>
+                                </div>
+                                
+                                <!-- Danh sách đánh giá -->
+                                <div class="reviews-list">
+                                    <c:if test="${not empty reviews}">
+                                        <c:forEach items="${reviews}" var="review">
+                                            <div class="review-item">
+                                                <div class="review-header">
+                                                    <strong>${review.user.name}</strong>
+                                                    <span class="review-date"><fmt:formatDate value="${review.createDate}" pattern="dd/MM/yyyy"/></span>
+                                                </div>
+                                                <div class="review-rating">
+                                                    <c:forEach begin="1" end="5" var="i">
+                                                        <c:if test="${i <= review.rating}">⭐</c:if>
+                                                        <c:if test="${i > review.rating}">☆</c:if>
+                                                    </c:forEach>
+                                                    <span class="rating-value">${review.rating}/5</span>
+                                                </div>
+                                                <div class="review-comment">
+                                                    ${review.comment}
+                                                </div>
+                                            </div>
+                                        </c:forEach>
+                                    </c:if>
+                                    <c:if test="${empty reviews}">
+                                        <p class="no-reviews">Chưa có đánh giá nào. Hãy là người đầu tiên đánh giá!</p>
+                                    </c:if>
+                                </div>
+                            </div>
 
                             <!-- sản phẩm tương tự -->
                             <div class="related__products">
@@ -142,7 +217,7 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="${classpath }/product-detail/${product.id}" class="image">
-						                                            <img src="${classpath }/UploadFiles/${product.avatar}" width="200px" class="fit-img zoom-img">
+					                                            <img src="${classpath }/UploadFiles/${product.avatar}" width="200px" class="fit-img zoom-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%23999%22%3ENo Image%3C/text%3E%3C/svg%3E'">
 						                                </a>
                                                         <span class="badges">
 					                                            <span class="new">new</span>
