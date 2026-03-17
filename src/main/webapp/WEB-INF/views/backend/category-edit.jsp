@@ -52,7 +52,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Edit Category</h2>
+                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Chỉnh sửa danh mục</h2>
                     </div>
                 </div>
             </div>

@@ -61,8 +61,7 @@
 				<div class="row">
 					<div class="col-12 align-self-center">
 						<h2
-							class="page-title text-truncate text-dark font-weight-medium mb-1">Order
-							Tracking</h2>
+							class="page-title text-truncate text-dark font-weight-medium mb-1">Theo dõi đơn hàng</h2>
 					</div>
 				</div>
 			</div>

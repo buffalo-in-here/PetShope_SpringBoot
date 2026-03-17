@@ -37,21 +37,21 @@
 									<div class="row justify-content-center">
 										<div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-											<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Sign up</p>
+											<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Đăng ký</p>
 
 											<form class="mx-1 mx-md-4" action="${classpath }/admin/user/add-save" method="post">
 
 												<div class="d-flex flex-row align-items-center mb-4">
 													<i class="fas fa-user fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
-														<label class="form-label" for="username">User name</label>
+														<label class="form-label" for="username">Tên người dùng</label>
 														<input type="text" id="username" name="username"
 															class="form-control" required="required" /> 
 													</div>
 													
 													<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
-														<label class="form-label" for="password">Password</label>
+														<label class="form-label" for="password">Mật khẩu</label>
 														<input type="password" id="password" name = "password"
 															class="form-control" required="required" /> 
 													</div>
@@ -60,7 +60,7 @@
 												<div class="d-flex flex-row align-items-center mb-4">
 													<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
-														<label class="form-label" for="name">Name</label>
+														<label class="form-label" for="name">Tên</label>
 														<input type="text" id="name" name = "name"
 															class="form-control" /> 
 													</div>
@@ -78,7 +78,7 @@
 												<div class="d-flex flex-row align-items-center mb-4">
 													<i class="fas fa-user fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
-														<label class="form-label"for="mobile">Mobile</label>
+														<label class="form-label"for="mobile">Di động</label>
 														<input type="text" id="mobile" name = "mobile"
 															class="form-control" /> 
 													</div>
@@ -87,17 +87,17 @@
 												<div class="d-flex flex-row align-items-center mb-4">
 													<i class="fas fa-lock fa-lg me-3 fa-fw"></i>
 													<div class="form-outline flex-fill mb-0">
-														<label class="form-label" for="address">Address</label>
+														<label class="form-label" for="address">Địa chỉ</label>
 														<input type="text" id="address" name = "address"
 															class="form-control" /> 
 													</div>
 												</div>
 
 												<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-													<button type="submit" class="btn btn-primary btn-lg">Register</button>
+													<button type="submit" class="btn btn-primary btn-lg">Đăng ký</button>
 													<pre>     </pre>
 													<a href="${classpath }/admin/user/list">
-													<button type="button" class="btn btn-primary btn-lg">Back</button></a>
+													<button type="button" class="btn btn-primary btn-lg">Quay lại</button></a>
 												</div>
 <!-- 												<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4"> -->
 <%-- 													<a href="${classpath }/admin/user/list"> --%>

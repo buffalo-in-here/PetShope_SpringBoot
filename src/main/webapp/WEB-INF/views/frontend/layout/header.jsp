@@ -2,6 +2,7 @@
 	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
 
@@ -68,6 +69,13 @@
 								    </c:choose>
 								</div>
 								
+								<!-- Nút admin cho ADMIN/STAFF -->
+								<sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_STAFF">
+									<div class="header__bottom-btn header__bottom-user">
+										<a href="${classpath}/admin/home" title="Admin Dashboard"><i class='bx bx-grid-alt'></i></a>
+									</div>
+								</sec:authorize>
+                                
                                 <div class=" header__bottom-btn header__bottom-user">
                                 	<c:choose>
 								        <c:when test="${empty userName}">

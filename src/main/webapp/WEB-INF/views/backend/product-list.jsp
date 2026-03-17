@@ -49,7 +49,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">List Product</h2>
+                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Danh sách sản phẩm</h2>
                     </div>
                 </div>
             </div>
@@ -75,18 +75,18 @@
 										<div class="col-md-2">
 											<div class="form-group mb-4">
 												<a href="${classpath }/admin/product/add" role="button"
-													class="btn btn-primary">Add new product</a>
+													class="btn btn-primary">Thêm sản phẩm mới</a>
 											</div>
 										</div>
 										<div class="col-md-4">
 											<div class="form-group mb-4">
-												<h3>Total products: &nbsp ${productSearch.totalItems }</h3>
+												<h3>Tổng sản phẩm: &nbsp ${productSearch.totalItems }</h3>
 											</div>
 										</div>	
 										
 										<div class="col-md-6">
 											<div class="form-group mb-4">
-												<label>Current page</label>
+												<label>Trang hiện tại</label>
 												<input id="currentPage" name="currentPage" class="form-control"
 														value="${productSearch.currentPage }">
 											</div>
@@ -104,16 +104,16 @@
 			                                         -->
 			                                        <select class="form-control"
 														id="status" name="status">
-															<option value="2">All</option>
-															<option value="1">Active</option>
-															<option value="0">Inactive</option>
+															<option value="2">Tất cả</option>
+															<option value="1">Hoạt động</option>
+															<option value="0">Không hoạt động</option>
 													</select>
 												</div>
 											</div>
 											
 											<div class="col-md-2">
 												<select class="form-control" id="categoryId" name="categoryId" style="margin-right: 10px;">
-													<option value="0">Select category</option>
+													<option value="0">Chọn danh mục</option>
 													<c:forEach items="${categories }" var="category">
 														<option value="${category.id }">${category.name }</option>
 													</c:forEach>
@@ -131,36 +131,36 @@
 											
 											<div class="col-md-3">
 												<input type="text" class="form-control" id="keyword"
-														name="keyword" placeholder="Search keyword" />		
+														name="keyword" placeholder="Từ khóa tìm kiếm" />		
 											</div>
 											
 											<div class="col-md-1">
 											
 											
-												<button type="submit" id="btnSearch" name="btnSearch" class="btn btn-primary">Search</button>
+												<button type="submit" id="btnSearch" name="btnSearch" class="btn btn-primary">Tìm kiếm</button>
 											</div>
 										</div>
 										<!-- Hết tìm kiếm -->
 	                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
 	                                        <thead>
 	                                            <tr align="center">
-	                                            	<th scope="col">No.</th>
-	                                                <th scope="col">Id</th>
-	                                                <th scope="col">Category</th>
-	                                                <th scope="col">Name</th>
-	                                                <th scope="col">Price</th>
-	                                                <th scope="col">Sale price</th>
-	                                                <th scope="col">Avatar</th>
-	                                                <th scope="col">Description</th>
-	                                                <th scope="col">Details</th>
-	                                                <th scope="col">Create by</th>
-	                                                <th scope="col">Update by</th>
-	                                                <th scope="col">Create date</th>
-	                                                <th scope="col">Update date</th>
-	                                                <th scope="col">Status</th>
-	                                                <th scope="col">Is hot</th>
+	                                            	<th scope="col">STT</th>
+	                                                <th scope="col">ID</th>
+	                                                <th scope="col">Danh mục</th>
+	                                                <th scope="col">Tên</th>
+	                                                <th scope="col">Giá</th>
+	                                                <th scope="col">Giá bán</th>
+	                                                <th scope="col">Ảnh đại diện</th>
+	                                                <th scope="col">Mô tả</th>
+	                                                <th scope="col">Chi tiết</th>
+	                                                <th scope="col">Tạo bởi</th>
+	                                                <th scope="col">Cập nhật bởi</th>
+	                                                <th scope="col">Ngày tạo</th>
+	                                                <th scope="col">Ngày cập nhật</th>
+	                                                <th scope="col">Trạng thái</th>
+	                                                <th scope="col">Hot</th>
 	                                                <th scope="col">Seo</th>
-	                                                <th scope="col">Actions</th>
+	                                                <th scope="col">Hành động</th>
 	                                            </tr>
 	                                        </thead>
 	                                        <tbody>
@@ -227,23 +227,23 @@
 	                                        </tbody>
 	                                        <tfoot>
 	                                            <tr align="center">
-	                                                <th scope="col">No.</th>
-	                                                <th scope="col">Id</th>
-	                                                <th scope="col">Category</th>
-	                                                <th scope="col">Name</th>
-	                                                <th scope="col">Price</th>
-	                                                <th scope="col">Sale price</th>
-	                                                <th scope="col">Avatar</th>
-	                                                <th scope="col">Description</th>
-	                                                <th scope="col">Details</th>
-	                                                <th scope="col">Create by</th>
-	                                                <th scope="col">Update by</th>
-	                                                <th scope="col">Create date</th>
-	                                                <th scope="col">Update date</th>
-	                                                <th scope="col">Status</th>
-	                                                <th scope="col">Is hot</th>
+	                                                <th scope="col">STT</th>
+	                                                <th scope="col">ID</th>
+	                                                <th scope="col">Danh mục</th>
+	                                                <th scope="col">Tên</th>
+	                                                <th scope="col">Giá</th>
+	                                                <th scope="col">Giá bán</th>
+	                                                <th scope="col">Ảnh đại diện</th>
+	                                                <th scope="col">Mô tả</th>
+	                                                <th scope="col">Chi tiết</th>
+	                                                <th scope="col">Tạo bởi</th>
+	                                                <th scope="col">Cập nhật bởi</th>
+	                                                <th scope="col">Ngày tạo</th>
+	                                                <th scope="col">Ngày cập nhật</th>
+	                                                <th scope="col">Trạng thái</th>
+	                                                <th scope="col">Hot</th>
 	                                                <th scope="col">Seo</th>
-	                                                <th scope="col">Actions</th>
+	                                                <th scope="col">Hành động</th>
 	                                            </tr>
 	                                        </tfoot>
 	                                    </table>

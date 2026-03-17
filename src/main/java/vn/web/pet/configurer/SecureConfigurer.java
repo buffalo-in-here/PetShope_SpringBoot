@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import vn.web.pet.service.JpaPersistentTokenRepository;
 import vn.web.pet.service.UserdetailServiceJw;
 
 @Configuration
@@ -31,8 +32,7 @@ public class SecureConfigurer extends WebSecurityConfigurerAdapter{
 //		 .antMatchers("/admin/**").authenticated() //step 1+2
 		
 		 // Cac request kieu /admin/** phai co role la ROLE_ADMIN //step 3
-		.antMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
-
+		.antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_STAFF")
 		.and()
 
 		// Neu chua login (xac thuc) thi redirect den trang login
@@ -56,11 +56,18 @@ public class SecureConfigurer extends WebSecurityConfigurerAdapter{
 		.deleteCookies("JSESSIONID")
 
 		.and()
-		.rememberMe().key("uniqueAndSecret").tokenValiditySeconds(86400);
+		.rememberMe()
+			.key("uniqueAndSecret")
+			.tokenValiditySeconds(86400 * 30)  // 30 days
+			.tokenRepository(jpaPersistentTokenRepository)
+			.userDetailsService(userDetailsService);
 	}
 	
 	@Autowired
 	private UserdetailServiceJw userDetailsService;
+
+	@Autowired
+	private JpaPersistentTokenRepository jpaPersistentTokenRepository;
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

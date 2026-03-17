@@ -45,11 +45,11 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Good Morning Jason!</h3>
+                        <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">Xin chào Jason!</h3>
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb m-0 p-0">
-                                    <li class="breadcrumb-item"><a href="${classpath }/admin/home">Dashboard</a>
+                                    <li class="breadcrumb-item"><a href="${classpath }/admin/home">Bảng điều khiển</a>
                                     </li>
                                 </ol>
                             </nav>
@@ -86,7 +86,7 @@
                                         <span
                                             class="badge bg-primary font-12 text-white font-weight-medium badge-pill ml-2 d-lg-block d-md-none"></span>
                                     </div>
-                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Clients</h6>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Khách hàng mới</h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-muted"><i data-feather="user-plus"></i></span>
@@ -99,7 +99,7 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <h2 class="text-dark mb-1 w-100 text-truncate font-weight-medium"> ${newTotalPrice }</h2>
-                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Earnings of Month
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Doanh thu của tháng
                                     </h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
@@ -117,7 +117,7 @@
                                         <span
                                             class="badge bg-danger font-12 text-white font-weight-medium badge-pill ml-2 d-md-none d-lg-block"></span>
                                     </div>
-                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">New Product</h6>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Sản phẩm mới</h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-muted"><i data-feather="file-plus"></i></span>
@@ -130,7 +130,7 @@
                             <div class="d-flex d-lg-flex d-md-block align-items-center">
                                 <div>
                                     <h2 class="text-dark mb-1 font-weight-medium">${totalProduct }</h2>
-                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Total Products</h6>
+                                    <h6 class="text-muted font-weight-normal mb-0 w-100 text-truncate">Tổng sản phẩm</h6>
                                 </div>
                                 <div class="ml-auto mt-md-3 mt-lg-0">
                                     <span class="opacity-7 text-muted"><i data-feather="globe"></i></span>
@@ -149,22 +149,22 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Total Sales</h4>
+                                <h4 class="card-title">Tổng doanh số bán hàng</h4>
                                 <div id="campaign-v2" class="mt-2" style="height:283px; width:100%;"></div>
                                 <ul class="list-style-none mb-0">
                                     <li>
                                         <i class="fas fa-circle text-primary font-10 mr-2"></i>
-                                        <span class="text-muted">Direct Sales</span>
+                                        <span class="text-muted">Bán hàng trực tiếp</span>
                                         <span class="text-dark float-right font-weight-medium">$2346</span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-danger font-10 mr-2"></i>
-                                        <span class="text-muted">Referral Sales</span>
+                                        <span class="text-muted">Bán hàng giới thiệu</span>
                                         <span class="text-dark float-right font-weight-medium">$2108</span>
                                     </li>
                                     <li class="mt-3">
                                         <i class="fas fa-circle text-cyan font-10 mr-2"></i>
-                                        <span class="text-muted">Affiliate Sales</span>
+                                        <span class="text-muted">Bán hàng kết hợp</span>
                                         <span class="text-dark float-right font-weight-medium">$1204</span>
                                     </li>
                                 </ul>
@@ -174,10 +174,10 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Net Income</h4>
+                                <h4 class="card-title">Thu nhập ròng</h4>
                                 <div class="net-income mt-4 position-relative" style="height:294px;"></div>
                                 <ul class="list-inline text-center mt-5 mb-2">
-                                    <li class="list-inline-item text-muted font-italic">Sales for this month</li>
+                                    <li class="list-inline-item text-muted font-italic">Doanh số bán hàng của tháng này</li>
                                 </ul>
                             </div>
                         </div>
@@ -185,7 +185,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Earning by Location</h4>
+                                <h4 class="card-title mb-4">Doanh thu theo địa điểm</h4>
                                 <div class="" style="height:180px">
                                     <div id="visitbylocate" style="height:100%"></div>
                                 </div>
@@ -260,7 +260,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-start">
-                                    <h4 class="card-title mb-0">Earning Statistics</h4>
+                                    <h4 class="card-title mb-0">Thống kê doanh thu</h4>
                                     <div class="ml-auto">
                                         <div class="dropdown sub-dropdown">
                                             <button class="btn btn-link text-muted dropdown-toggle" type="button"
@@ -280,7 +280,7 @@
                                     <div class="stats ct-charts position-relative" style="height: 315px;"></div>
                                 </div>
                                 <ul class="list-inline text-center mt-4 mb-0">
-                                    <li class="list-inline-item text-muted font-italic">Earnings for this month</li>
+                                    <li class="list-inline-item text-muted font-italic">Doanh thu của tháng này</li>
                                 </ul>
                             </div>
                         </div>
@@ -288,7 +288,7 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Recent Activity</h4>
+                                <h4 class="card-title">Hoạt động gần đây</h4>
                                 <div class="mt-4 activity">
                                     <div class="d-flex align-items-start border-left-line pb-3">
                                         <div>
@@ -297,11 +297,11 @@
                                             </a>
                                         </div>
                                         <div class="ml-3 mt-2">
-                                            <h5 class="text-dark font-weight-medium mb-2">New Product Sold!</h5>
-                                            <p class="font-14 mb-2 text-muted">John Musa just purchased <br> Cannon 5M
-                                                Camera.
+                                            <h5 class="text-dark font-weight-medium mb-2">Sản phẩm mới được bán!</h5>
+                                            <p class="font-14 mb-2 text-muted">John Musa vừa mua <br> Camera Cannon 5M
+                                                .
                                             </p>
-                                            <span class="font-weight-light font-14 text-muted">10 Minutes Ago</span>
+                                            <span class="font-weight-light font-14 text-muted">10 phút trước</span>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-start border-left-line pb-3">
@@ -312,10 +312,10 @@
                                             </a>
                                         </div>
                                         <div class="ml-3 mt-2">
-                                            <h5 class="text-dark font-weight-medium mb-2">New Support Ticket</h5>
-                                            <p class="font-14 mb-2 text-muted">Richardson just create support <br>
-                                                ticket</p>
-                                            <span class="font-weight-light font-14 text-muted">25 Minutes Ago</span>
+                                            <h5 class="text-dark font-weight-medium mb-2">Hỗ trợ khách hàng mới</h5>
+                                            <p class="font-14 mb-2 text-muted">Richardson vừa tạo yêu cầu hỗ trợ <br>
+                                                mới</p>
+                                            <span class="font-weight-light font-14 text-muted">25 phút trước</span>
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-start border-left-line">
@@ -325,12 +325,12 @@
                                             </a>
                                         </div>
                                         <div class="ml-3 mt-2">
-                                            <h5 class="text-dark font-weight-medium mb-2">Notification Pending Order!
+                                            <h5 class="text-dark font-weight-medium mb-2">Thông báo đơn hàng chờ xử lý!
                                             </h5>
-                                            <p class="font-14 mb-2 text-muted">One Pending order from Ryne <br> Doe</p>
-                                            <span class="font-weight-light font-14 mb-1 d-block text-muted">2 Hours
-                                                Ago</span>
-                                            <a href="javascript:void(0)" class="font-14 border-bottom pb-1 border-info">Load More</a>
+                                            <p class="font-14 mb-2 text-muted">Một đơn hàng chờ xử lý từ Ryne <br> Doe</p>
+                                            <span class="font-weight-light font-14 mb-1 d-block text-muted">2 giờ
+                                                trước</span>
+                                            <a href="javascript:void(0)" class="font-14 border-bottom pb-1 border-info">Xem thêm</a>
                                         </div>
                                     </div>
                                 </div>
@@ -349,7 +349,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4">
-                                    <h4 class="card-title">Top Leaders</h4>
+                                    <h4 class="card-title">Nhà lãnh đạo hàng đầu</h4>
                                     <div class="ml-auto">
                                         <div class="dropdown sub-dropdown">
                                             <button class="btn btn-link text-muted dropdown-toggle" type="button"
@@ -358,9 +358,9 @@
                                                 <i data-feather="more-vertical"></i>
                                             </button>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd1">
-                                                <a class="dropdown-item" href="#">Insert</a>
-                                                <a class="dropdown-item" href="#">Update</a>
-                                                <a class="dropdown-item" href="#">Delete</a>
+                                                <a class="dropdown-item" href="#">Thêm</a>
+                                                <a class="dropdown-item" href="#">Cập nhật</a>
+                                                <a class="dropdown-item" href="#">Xóa</a>
                                             </div>
                                         </div>
                                     </div>
@@ -369,18 +369,18 @@
                                     <table class="table no-wrap v-middle mb-0">
                                         <thead>
                                             <tr class="border-0">
-                                                <th class="border-0 font-14 font-weight-medium text-muted">Team Lead
+                                                <th class="border-0 font-14 font-weight-medium text-muted">Trưởng nhóm
                                                 </th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted px-2">Project
+                                                <th class="border-0 font-14 font-weight-medium text-muted px-2">Dự án
                                                 </th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted">Team</th>
+                                                <th class="border-0 font-14 font-weight-medium text-muted">Nhóm</th>
                                                 <th class="border-0 font-14 font-weight-medium text-muted text-center">
-                                                    Status
+                                                    Trạng thái
                                                 </th>
                                                 <th class="border-0 font-14 font-weight-medium text-muted text-center">
-                                                    Weeks
+                                                    Tuần
                                                 </th>
-                                                <th class="border-0 font-14 font-weight-medium text-muted">Budget</th>
+                                                <th class="border-0 font-14 font-weight-medium text-muted">Ngân sách</th>
                                             </tr>
                                         </thead>
                                         <tbody>

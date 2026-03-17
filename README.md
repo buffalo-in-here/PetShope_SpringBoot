@@ -90,7 +90,7 @@ PetShope_SpringBoot/
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/trdquang/PetShope_SpringBoot.git
+git clone ...
 cd PetShope_SpringBoot
 ```
 

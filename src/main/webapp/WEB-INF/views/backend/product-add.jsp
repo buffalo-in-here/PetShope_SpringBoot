@@ -61,7 +61,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Add New Product</h2>
+                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Thêm sản phẩm mới</h2>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
 	                        			<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="category">Select category</label>
+			                                        <label for="category">Chọn danh mục</label>
 			                                        <sf:select path="category.id" class="form-control" id="category">
 			                                            <sf:options items="${categories }" itemValue="id" itemLabel="name"></sf:options>
 			                                        </sf:select>
@@ -95,7 +95,7 @@
 										
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="name">Product name</label>
+			                                        <label for="name">Tên sản phẩm</label>
 			                                        <sf:input path="name" type="text" class="form-control" id="name" name="name" placeholder="product name"></sf:input>
                                         		</div>
 	                                    	</div>
@@ -104,14 +104,14 @@
 										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="price">Price</label>
+			                                        <label for="price">Giá</label>
 			                                        <sf:input path="price" type="number" autocomplete="off" id="price" name="price" class="form-control" placeholder="price"></sf:input>
                                         		</div>
 	                                    	</div>
 										
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="salePrice">Sale price</label>
+			                                        <label for="salePrice">Giá bán</label>
 			                                        <sf:input path="salePrice" type="number" autocomplete="off" id="salePrice" name="salePrice" class="form-control" placeholder="Sale price"></sf:input>
                                         		</div>
 	                                    	</div>
@@ -120,7 +120,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="create">Create by</label>
+			                                        <label for="create">Tạo bởi</label>
 			                                        <sf:select path="userCreateProduct.id" class="form-control" id="createBy">
 			                                            <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
 			                                        </sf:select>
@@ -129,7 +129,7 @@
 									
 											<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="update">Update by</label>
+			                                        <label for="update">Cập nhật bởi</label>
 			                                        <sf:select path="userUpdateProduct.id" class="form-control" id="updateBy">
 			                                            <sf:options items="${users }" itemValue="id" itemLabel="username"></sf:options>
 			                                        </sf:select>
@@ -140,7 +140,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="createdate">Create date</label>
+			                                        <label for="createdate">Ngày tạo</label>
 			                                        
 			                                        <sf:input path="createDate" class="form-control" type="date" 
 			                                        			id="createDate" name="createDate"></sf:input>
@@ -149,7 +149,7 @@
 									
 											<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <label for="updatedate">Update date</label>
+			                                        <label for="updatedate">Ngày cập nhật</label>
 			                                       
 			                                        <sf:input path="updateDate" class="form-control" type="date" 
 			                                        			id="updateDate" name="updateDate"></sf:input>
@@ -160,7 +160,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-12">
 												<div class="form-group mb-4">
-			                                        <label for="description">Description</label>
+			                                        <label for="description">Mô tả</label>
 			                                        <sf:textarea path="shortDescription" id="shortDescription" name="shortDescription"
 																class="form-control" rows="3" placeholder="Short desription..."></sf:textarea>
                                         		</div>
@@ -170,7 +170,7 @@
 										<div class="row">
 	                        		 		<div class="col-md-12">
 												<div class="form-group mb-4">
-			                                        <label for="detailDescription">Detail description</label>
+			                                        <label for="detailDescription">Mô tả chi tiết</label>
 			                                        <sf:textarea path="detailDescription" id="detailDescription" name="detailDescription"
 																class="form-control" rows="3" placeholder="detail desription..."></sf:textarea>
                                         		</div>
@@ -182,7 +182,7 @@
 												<div class="form-group mb-4">
 													<label for="isHot">&nbsp;&nbsp;&nbsp;&nbsp;</label>
 													<sf:checkbox path="isHot" class="form-check-input" id="isHot" name="isHot"></sf:checkbox>
-			                                        <label for="isHot">Is a hot product?</label>
+			                                        <label for="isHot">Là sản phẩm hot?</label>
 			                                       
                                         		</div>
 	                                    	</div>
@@ -191,7 +191,7 @@
 												<div class="form-group mb-4">
 													<label for="status">&nbsp;&nbsp;&nbsp;&nbsp;</label>
 													<sf:checkbox path="status" class="form-check-input" id="status" name="status"></sf:checkbox>
-			                                        <label for="status">Active</label>
+			                                        <label for="status">Hoạt động</label>
 			                                       
                                         		</div>
 	                                    	</div>

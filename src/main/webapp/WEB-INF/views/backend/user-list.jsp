@@ -47,7 +47,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">List Category</h2>
+                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Danh sách người dùng</h2>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                                	<div class="row">
                        		 		<div class="col-md-6">
 										<div class="form-group mb-4">
-	                                        <a href="${classpath }/admin/user/add" role="button" class="btn btn-primary">Add New User</a>
+	                                        <a href="${classpath }/admin/user/add" role="button" class="btn btn-primary">Thêm người dùng mới</a>
                                       	</div>
                                    	</div>
                                 </div>
@@ -82,17 +82,17 @@
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                            	<th scope="col">No.</th>
-                                                <th scope="col">Id</th>
-                                                <th scope="col">User Name</th>    
-                                                <th scope="col">Name</th>    
-                                                <th scope="col">Mobile</th>    
+                                            	<th scope="col">STT</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Tên người dùng</th>    
+                                                <th scope="col">Tên</th>    
+                                                <th scope="col">Di động</th>    
                                                 <th scope="col">Email</th>    
-                                                <th scope="col">Address</th>
-                                                <th scope="col">Create date</th>
-                                                <th scope="col">Update date</th>
-                                                <th scope="col">Status</th> 
-                                                <th scope="col">Actions</th>                                              
+                                                <th scope="col">Địa chỉ</th>
+                                                <th scope="col">Ngày tạo</th>
+                                                <th scope="col">Ngày cập nhật</th>
+                                                <th scope="col">Trạng thái</th> 
+                                                <th scope="col">Hành động</th>                                              
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -132,17 +132,17 @@
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                            	<th scope="col">No.</th>
-                                                <th scope="col">Id</th>
-                                                <th scope="col">User Name</th>    
-                                                <th scope="col">Name</th>    
-                                                <th scope="col">Mobile</th>    
+                                            	<th scope="col">STT</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Tên người dùng</th>    
+                                                <th scope="col">Tên</th>    
+                                                <th scope="col">Di động</th>    
                                                 <th scope="col">Email</th>    
-                                                <th scope="col">Address</th>
-                                                <th scope="col">Create date</th>
-                                                <th scope="col">Update date</th>
-                                                <th scope="col">Status</th> 
-                                                <th scope="col">Actions</th>           
+                                                <th scope="col">Địa chỉ</th>
+                                                <th scope="col">Ngày tạo</th>
+                                                <th scope="col">Ngày cập nhật</th>
+                                                <th scope="col">Trạng thái</th> 
+                                                <th scope="col">Hành động</th>           
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -150,7 +150,7 @@
                                     <div class="row">
 	                        		 		<div class="col-md-6">
 												<div class="form-group mb-4">
-			                                        <a href="${classpath }/admin/user/add" role="button" class="btn btn-primary">Add New User</a>
+			                                        <a href="${classpath }/admin/user/add" role="button" class="btn btn-primary">Thêm người dùng mới</a>
                                         		</div>
 	                                    	</div>
 										

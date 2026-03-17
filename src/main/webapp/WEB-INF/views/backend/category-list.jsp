@@ -47,7 +47,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-7 align-self-center">
-                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">List Category</h2>
+                        <h2 class="page-title text-truncate text-dark font-weight-medium mb-1">Danh sách Danh mục</h2>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                                	<div class="row">
                        		 		<div class="col-md-6">
 										<div class="form-group mb-4">
-	                                        <a href="${classpath }/admin/category/add" role="button" class="btn btn-primary">Add New Category</a>
+	                                        		<a href="${classpath }/admin/category/add" role="button" class="btn btn-primary">Thêm danh mục mới</a>
                                       	</div>
                                    	</div>
 									
@@ -81,16 +81,16 @@
                                     <table id="zero_config" class="table table-striped table-bordered no-wrap">
                                         <thead>
                                             <tr>
-                                            	<th scope="col">No.</th>
-                                                <th scope="col">Id</th>
-                                                <th scope="col">Name</th>    
-                                                <th scope="col">Create by</th>
-                                                <th scope="col">Update by</th>
-                                                <th scope="col">Create date</th>
-                                                <th scope="col">Update date</th>
-                                                <th scope="col">Status</th>  
-                                                <th scope="col">Description</th>
-                                                <th scope="col">Actions</th>                                              
+                                            	<th scope="col">STT</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Tên</th>    
+                                                <th scope="col">Tạo bởi</th>
+                                                <th scope="col">Cập nhật bởi</th>
+                                                <th scope="col">Ngày tạo</th>
+                                                <th scope="col">Ngày cập nhật</th>
+                                                <th scope="col">Trạng thái</th>  
+                                                <th scope="col">Mô tả</th>
+                                                <th scope="col">Hành động</th>                                              
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -109,36 +109,36 @@
 		                                        	</td>
 		                                        	<td>
 		                                        		<c:choose>
-		                                        			<c:when test="${category.status }">
-		                                        				<span>Active</span>
-		                                        			</c:when>
-		                                        			<c:otherwise>
-		                                        				<span>Inactive</span>
-		                                        			</c:otherwise>
-		                                        		</c:choose>
+                                        							<c:when test="${category.status }">
+                                        								<span>Hoạt động</span>
+                                        							</c:when>
+                                        							<c:otherwise>
+                                        								<span>Không hoạt động</span>
+                                        							</c:otherwise>
+                                        						</c:choose>
 		                                        		</td>
 	                                        		<td>${category.description }</td>
 	                                        		<td>
 	                                        			<a href="${classpath }/admin/category/edit/${category.id }" role="button" 
-	                                                							class="btn btn-primary">Edit</a>
+	                                                						class="btn btn-primary">Sửa</a>
 	                                                	<a href="${classpath }/admin/category/delete/${category.id }" role="button" 
-	                                                							class="btn btn-secondary">Delete</a>
+	                                                						class="btn btn-secondary">Xóa</a>
 	                                        		</td>
                                         		</tr>
                                         	</c:forEach>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                            	<th scope="col">No.</th>
-                                                <th scope="col">Id</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Create by</th>
-                                                <th scope="col">Update by</th>
-                                                <th scope="col">Create date</th>
-                                                <th scope="col">Update date</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Description</th>
-                                                <th scope="col">Actions</th>
+                                            	<th scope="col">STT</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Tên</th>
+                                                <th scope="col">Tạo bởi</th>
+                                                <th scope="col">Cập nhật bởi</th>
+                                                <th scope="col">Ngày tạo</th>
+                                                <th scope="col">Ngày cập nhật</th>
+                                                <th scope="col">Trạng thái</th>
+                                                <th scope="col">Mô tả</th>
+                                                <th scope="col">Hành động</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -154,7 +154,7 @@
 											    <ul class="pagination justify-content-end">
 											        <c:if test="${currentPage > 1}">
 											            <li class="page-item">
-											                <a class="page-link" href="?page=${currentPage - 1}" tabindex="-1">Previous</a>
+											            <a class="page-link" href="?page=${currentPage - 1}" tabindex="-1">Trang trước</a>
 											            </li>
 											        </c:if>
 											        <c:forEach begin="1" end="${totalPages}" var="pageNumber">
@@ -169,7 +169,7 @@
 											        </c:forEach>
 											        <c:if test="${currentPage < totalPages}">
 											            <li class="page-item">
-											                <a class="page-link" href="?page=${currentPage + 1}">Next</a>
+											            <a class="page-link" href="?page=${currentPage + 1}">Trang tiếp theo</a>
 											            </li>
 											        </c:if>
 											    </ul>

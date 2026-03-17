@@ -1,5 +1,9 @@
-<!-- Google Fonts: Rubik (thay font local Gilmer/TofinoPersonal) -->
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- Google Fonts: Rubik + Noto Sans (support Vietnamese) -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+    body, html, * { font-family: 'Noto Sans', 'Rubik', sans-serif !important; }
+</style>
 <!-- C3, Chartist, jVectorMap (CDN) -->
 <link href="https://cdn.jsdelivr.net/npm/c3@0.7.20/c3.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.4/dist/chartist.min.css" rel="stylesheet">
