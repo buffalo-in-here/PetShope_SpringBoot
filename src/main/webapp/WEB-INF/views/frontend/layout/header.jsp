@@ -70,7 +70,7 @@
 								</div>
 								
 								<!-- Nút admin cho ADMIN/STAFF -->
-								<sec:authorize ifAnyGranted="ROLE_ADMIN,ROLE_STAFF">
+								<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_STAFF')">
 									<div class="header__bottom-btn header__bottom-user">
 										<a href="${classpath}/admin/home" title="Admin Dashboard"><i class='bx bx-grid-alt'></i></a>
 									</div>

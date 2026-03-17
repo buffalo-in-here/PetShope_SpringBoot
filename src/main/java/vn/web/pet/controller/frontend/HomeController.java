@@ -58,6 +58,11 @@ public class HomeController extends BaseController implements Jw28Constant{
 	    return new PageImpl<>(products.subList(start, end), PageRequest.of(page - 1, size), products.size());
 	}
 	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String root() {
+		return "redirect:/index";
+	}
+	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String home(Model model, 
 			           @RequestParam(name = "page", defaultValue = "1") int page,
